@@ -1,0 +1,107 @@
+body {
+  font-family: "Kanit", sans-serif;
+  background: rgba(247, 247, 247, 1);
+  color: rgba(37, 37, 37, 1);
+}
+.container {
+  max-width: 750px;
+  margin: 0px auto;
+}
+.header {
+  padding-top: 40px;
+}
+.header__title {
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  margin-bottom: 18px;
+}
+.header__row {
+  display: flex;
+  gap: 16px;
+}
+.header__search {
+  display: flex;
+  width: 100%;
+  border: 1px solid rgba(108, 99, 255, 1);
+  border-radius: 5px;
+  padding: 8px 16px;
+}
+.header__input {
+  width: 100%;
+  background-color: transparent;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+.header__select {
+  background: rgba(108, 99, 255, 1);
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  color: rgba(247, 247, 247, 1);
+  padding: 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url(./img/chevron-top.svg);
+  background-repeat: no-repeat;
+  background-position: right 17px bottom 17px;
+}
+.header__btn {
+  background: rgba(108, 99, 255, 1);
+  border-radius: 5px;
+  min-width: 38px;
+}
+.main {
+  margin: 30px 115px;
+}
+.todo__items {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+.todo__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 17px;
+  border-bottom: 1px solid rgba(108, 99, 255, 1);
+}
+.todo__left {
+  display: flex;
+  gap: 17px;
+  align-items: center;
+}
+.todo__check {
+  width: 26px;
+  height: 26px;
+  border: 1px solid rgba(108, 99, 255, 1);
+  border-radius: 2px;
+  background: transparent;
+}
+.todo__name {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+}
+.todo__right {
+  display: flex;
+  gap: 10px;
+}
+.todo__edit {
+  background: none;
+}
+.todo__delete {
+  background: none;
+}
+.todo__complete {
+}
