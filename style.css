@@ -1,11 +1,29 @@
+:root {
+  --background: rgba(247, 247, 247, 1);
+  --color: rgba(37, 37, 37, 1);
+  --input-color: rgba(108, 99, 255, 1);
+  --complete-color: rgba(37, 37, 37, 0.5);
+  --theme-img: url(./img/moon.svg);
+  --empty-img: url(./img/empty-light.png);
+}
 body {
   font-family: "Kanit", sans-serif;
-  background: rgba(247, 247, 247, 1);
-  color: rgba(37, 37, 37, 1);
+  background: var(--background);
+  color: var(--color);
+}
+body.dark {
+  --background: rgba(37, 37, 37, 1);
+  --color: rgba(247, 247, 247, 1);
+  --input-color: rgba(247, 247, 247, 1);
+  --complete-color: rgba(255, 255, 255, 0.5);
+  --theme-img: url(./img/sun.svg);
+  --empty-img: url(./img/empty-dark.png);
 }
 .container {
   max-width: 750px;
   margin: 0px auto;
+  position: relative;
+  min-height: 100vh;
 }
 .header {
   padding-top: 40px;
@@ -25,11 +43,15 @@ body {
 .header__search {
   display: flex;
   width: 100%;
-  border: 1px solid rgba(108, 99, 255, 1);
+  border: 1px solid var(--input-color);
   border-radius: 5px;
   padding: 8px 16px;
 }
+.header__search svg path {
+  fill: var(--input-color);
+}
 .header__input {
+  color: var(--color);
   width: 100%;
   background-color: transparent;
   font-weight: 500;
@@ -55,9 +77,12 @@ body {
   background-position: right 17px bottom 17px;
 }
 .header__btn {
-  background: rgba(108, 99, 255, 1);
+  background-color: rgba(108, 99, 255, 1);
   border-radius: 5px;
   min-width: 38px;
+  background-image: var(--theme-img);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .main {
   margin: 30px 115px;
@@ -96,6 +121,11 @@ body {
 .todo__right {
   display: flex;
   gap: 10px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.todo__item:hover .todo__right {
+  opacity: 1;
 }
 .todo__edit {
   background: none;
@@ -103,5 +133,114 @@ body {
 .todo__delete {
   background: none;
 }
-.todo__complete {
+.todo__complete .todo__check {
+  background-color: rgba(108, 99, 255, 1);
+  background-image: url(./img/check.svg);
+  background-repeat: no-repeat;
+  background-position: top 3px center;
+}
+.todo__complete .todo__name {
+  color: var(--complete-color);
+  text-decoration: line-through;
+}
+.add__btn {
+  position: absolute;
+  right: 8px;
+  bottom: 32px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(108, 99, 255, 1);
+  box-shadow: 0px 0px 4px 0px rgba(108, 99, 255, 1);
+}
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(37, 37, 37, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+.modal__open {
+  opacity: 1;
+  visibility: visible;
+}
+.modal__container {
+  width: 500px;
+  height: 289px;
+  border-radius: 16px;
+  background-color: var(--background);
+  padding: 18px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(247, 247, 247, 1);
+}
+.modal__title {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+  text-align: center;
+}
+.modal__input {
+  width: 100%;
+  border: 1px solid var(--input-color);
+  color: var(--color);
+  border-radius: 5px;
+  padding: 8px 16px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  background: transparent;
+}
+.modal__bottom {
+  display: flex;
+  justify-content: space-between;
+}
+.modal__cancel {
+  background-color: transparent;
+  padding: 10px 22px;
+  border: 1px solid rgba(108, 99, 255, 1);
+  border-radius: 5px;
+  color: rgba(108, 99, 255, 1);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+}
+.modal__apply {
+  background: rgba(108, 99, 255, 1);
+  padding: 10px 22px;
+  border: 1px solid rgba(108, 99, 255, 1);
+  border-radius: 5px;
+  color: white;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+}
+.empty__img {
+  width: 221px;
+  height: 174px;
+  background-image: var(--empty-img);
+  margin: 20px auto;
+}
+.empty__text {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
 }
